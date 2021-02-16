@@ -1,0 +1,8 @@
+-- New user, sudoer & ssh access
+
+sudo adduser jakub
+usermod -aG sudo jakub
+su - jakub
+mkdir ~/.ssh
+nano ~/.ssh/authorized_keys
+<<paste public ssh key>>

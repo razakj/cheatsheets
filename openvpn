@@ -4,5 +4,13 @@ wget https://raw.githubusercontent.com/angristan/openvpn-install/master/openvpn-
 chmod +x openvpn-install.sh
 sudo ./openvpn-install.sh
 
--- NR300/500
-Extra options remote-cert-tls server,tls-client,link-mtu 1549,auth SHA256
+--IoT
+NR300/500 
+  - Extra router options remote-cert-tls server,tls-client,link-mtu 1549,auth SHA256
+  - tls-crypt/auth not supported, have to be removed from server.conf
+  - server.conf 
+    - push "route <devices> 255.255.0.0" 
+    - route <devices> 255.255.0.0
+  - Create a new profile for each device in ccd with
+    - iroute <site subnet> 255.255.255.0
+    - route <site subnet> 255.255.255.0
